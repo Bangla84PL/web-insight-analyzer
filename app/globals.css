@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================
+   SMARTCAMP.AI BRANDING - GLOBALS
+   ===================================
+   Design System: Jungle Tech with Glass Morphism
+   Primary Font: Jost
+   Primary Color: White with transparency
+   Accent Color: Emerald-500 (#10b981)
+   Background: Jungle image (fixed attachment)
+*/
+
+@layer base {
+  :root {
+    /* Background & Foreground */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 100%;
+
+    /* Card (Glass Morphism) */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 100%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary (White) */
+    --primary: 0 0% 100%;
+    --primary-foreground: 148 40% 22%;  /* Forest green #1f4d2f */
+
+    /* Secondary */
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 100%;
+
+    /* Accent (Emerald-500) */
+    --accent: 160 84% 39%;  /* #10b981 */
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive (Red-500) */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border & Input */
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 100%;
+
+    /* Border Radius */
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-transparent text-foreground font-jost;
+    background-image: url('/backgrounds/jungle background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: white;
+  }
+}
+
+/* ===================================
+   SMARTCAMP.AI UTILITY CLASSES
+   =================================== */
+
+@layer components {
+  /* Glass Morphism Effects */
+  .glass-card {
+    @apply bg-white/15 backdrop-blur-lg border border-white/20 rounded-lg shadow-sm;
+  }
+
+  .glass-input {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20 rounded-md;
+  }
+
+  .glass-button {
+    @apply bg-white/10 backdrop-blur-sm border border-white/30 rounded-md hover:bg-white/15 transition-all duration-200;
+  }
+
+  /* Jungle Background Overlay */
+  .jungle-overlay {
+    @apply bg-black/30 backdrop-blur-sm;
+  }
+
+  .jungle-overlay-dark {
+    @apply bg-black/40;
+  }
+
+  /* Text Utilities */
+  .text-shadow {
+    filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.8));
+  }
+
+  /* Container */
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl;
+  }
+
+  .container-narrow {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl;
+  }
+
+  /* Button Variants */
+  .button-jungle {
+    @apply relative px-4 py-2 rounded-md font-semibold text-white border border-white/30 shadow-md hover:opacity-90 transition-all duration-200;
+    background-image: url('/backgrounds/jungle background.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .button-jungle::before {
+    content: '';
+    @apply absolute inset-0 bg-black/40 rounded-md -z-10;
+  }
+
+  .button-jungle > * {
+    @apply relative z-10;
+  }
+
+  /* Loading States */
+  .spinner {
+    @apply inline-block w-6 h-6 border-2 border-white/30 border-t-white rounded-full;
+    animation: spin 0.6s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .pulse-slow {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Skeleton Loader */
+  .skeleton {
+    @apply bg-gradient-to-r from-white/10 via-white/20 to-white/10 rounded-md;
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Entrance Animations */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Focus Visible Ring */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+  }
+
+  /* Hover Scale */
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  /* Hover Lift */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+}
+
+/* ===================================
+   SCROLLBAR STYLING
+   =================================== */
+
+@layer utilities {
+  /* Custom scrollbar for webkit browsers */
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-white/5 rounded-full;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-white/20 rounded-full hover:bg-white/30;
+  }
+
+  /* Text Selection */
+  ::selection {
+    @apply bg-emerald-500/30 text-white;
+  }
+}
+
+/* ===================================
+   RESPONSIVE TYPOGRAPHY
+   =================================== */
+
+@layer base {
+  h1 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl font-semibold text-white leading-tight;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl font-semibold text-white leading-tight;
+  }
+
+  h4 {
+    @apply text-lg sm:text-xl font-semibold text-white leading-tight;
+  }
+
+  p {
+    @apply text-base text-white/80 leading-relaxed;
+  }
+
+  a {
+    @apply text-white hover:text-emerald-400 transition-colors duration-200;
+  }
+
+  /* Form Elements */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="url"],
+  textarea,
+  select {
+    @apply glass-input px-3 py-2 text-white placeholder:text-white/70 focus:border-white/50 focus:ring-2 focus:ring-white/20 focus:outline-none transition-all;
+  }
+
+  button {
+    @apply focus-ring transition-all duration-200 active:scale-98;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+/* Ensure sufficient contrast */
+@media (prefers-contrast: more) {
+  body {
+    @apply bg-black;
+  }
+
+  .glass-card {
+    @apply bg-white/25 border-white/40;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+  body {
+    @apply bg-white text-black;
+    background-image: none;
+  }
+
+  .glass-card {
+    @apply bg-white border-gray-300;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
