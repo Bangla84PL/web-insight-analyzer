@@ -67,6 +67,17 @@ export async function updatePassword(newPassword: string) {
 }
 
 /**
+ * Sign out the current user
+ */
+export async function signOut() {
+  const { error } = await supabase.auth.signOut()
+
+  if (error) {
+    throw new Error(error.message)
+  }
+}
+
+/**
  * Get current session
  */
 export async function getSession() {
