@@ -78,6 +78,9 @@ const config = {
       backdropBlur: {
         xs: '2px',
       },
+      scale: {
+        '98': '0.98',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
