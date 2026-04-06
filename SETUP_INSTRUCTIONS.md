@@ -55,8 +55,8 @@ Edit `.env.local` and add:
 ```bash
 # Supabase (already configured on VPS)
 NEXT_PUBLIC_SUPABASE_URL=https://api.supabase.smartcamp.ai
-NEXT_PUBLIC_SUPABASE_ANON_KEY=***REDACTED_SUPABASE_ANON_KEY***
-SUPABASE_SERVICE_ROLE_KEY=***REDACTED_SUPABASE_SERVICE_KEY***
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 SUPABASE_JWT_SECRET=Vi43sxW5rB2Eq9jDDfNBMgaVYmlMkOmJeTq7F6gilJg=
 
 # Redis (SmartCamp.AI VPS)

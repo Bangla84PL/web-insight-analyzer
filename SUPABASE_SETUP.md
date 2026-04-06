@@ -158,10 +158,10 @@ After setting up the database, configure these environment variables in your app
 ```bash
 # Supabase Connection (already configured in VPS)
 NEXT_PUBLIC_SUPABASE_URL=https://api.supabase.smartcamp.ai
-NEXT_PUBLIC_SUPABASE_ANON_KEY=***REDACTED_SUPABASE_ANON_KEY***
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 
 # Service Role Key (Server-side only - NEVER expose to client)
-SUPABASE_SERVICE_ROLE_KEY=***REDACTED_SUPABASE_SERVICE_KEY***
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 
 # JWT Secret (for verification)
 SUPABASE_JWT_SECRET=Vi43sxW5rB2Eq9jDDfNBMgaVYmlMkOmJeTq7F6gilJg=
